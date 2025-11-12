@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Bites Check -Login
+{% endblock %}
+{% block styles %}
+<div class="max-w-2xl mx-auto mt-12 px-6">
+    <div class="bg-white shadow-xl rounded-2xl p-8">
+      <h2 class="text-3xl font-extrabold text-gray-800 mb-6 text-center">🍽️ Log Your Daily Meals</h2>
+  
+      {% if error %}
+        <p class="text-red-500 mb-4 text-sm text-center">{{ error }}</p>
+      {% endif %}
+  
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+  
+        <!-- Morning -->
+        <div class="bg-gray-50 p-4 rounded-lg shadow-inner">
+          <h3 class="text-lg font-semibold text-gray-700 mb-3">🌅 Morning</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input name="morning_meal" placeholder="E.g., Oatmeal with Fruits" required class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" />
+            <input name="morning_quantity" type="number" placeholder="Quantity (e.g., 1 bowl)" required class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" />
+          </div>
+        </div>
+  
+        <!-- Evening -->
+        <div class="bg-gray-50 p-4 rounded-lg shadow-inner">
+          <h3 class="text-lg font-semibold text-gray-700 mb-3">🌇 Evening</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input name="evening_meal" placeholder="E.g., Grilled Sandwich" required class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+            <input name="evening_quantity" type="number" placeholder="Quantity (e.g., 2 slices)" required class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+          </div>
+        </div>
+  
+        <!-- Dinner -->
+        <div class="bg-gray-50 p-4 rounded-lg shadow-inner">
+          <h3 class="text-lg font-semibold text-gray-700 mb-3">🌙 Dinner</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input name="dinner_meal" placeholder="E.g., Rice with Vegetables" required class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400" />
+            <input name="dinner_quantity" type="number" placeholder="Quantity (e.g., 1 plate)" required class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400" />
+          </div>
+        </div>
+  
+        <!-- Submit -->
+        <div class="text-center pt-4">
+          <button type="submit" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-base font-medium transition duration-200 shadow">
+            ✅ Submit Meal Log
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
+
+
+
+{% endblock %}
